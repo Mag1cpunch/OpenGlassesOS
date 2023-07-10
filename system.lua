@@ -1,14 +1,18 @@
 -- AR Googles OS
 -- Requires Advanced Peripherals and CC: Tweaked
 
--- Required modules
+-- Check if AR Googles are available
 local ap = peripheral.find("ap_ar_goggles")
+if not ap then
+  print("AR Googles not found. Make sure they are connected.")
+  return
+end
 
 -- Function to display the main menu
 local function displayMainMenu()
   term.clear()
   term.setCursorPos(1, 1)
-  print("Welcome to OpenGlassesOS by Meteor!")
+  print("AR Googles OS")
   print("1. View Ore Locations")
   print("2. Enable/Disable X-Ray Vision")
   print("3. Exit")
