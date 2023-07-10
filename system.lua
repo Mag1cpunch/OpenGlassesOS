@@ -1,10 +1,10 @@
 -- AR Googles OS
 -- Requires Advanced Peripherals and CC: Tweaked
 
--- Check if AR Googles are available
-local ap = peripheral.find("ap_ar_goggles")
-if not ap then
-  print("AR Googles not found. Make sure they are connected.")
+-- Check if AR Controller is available
+local controller = peripheral.find("arController")
+if not controller then
+  print("AR Controller not found. Make sure it is connected.")
   return
 end
 
@@ -24,7 +24,7 @@ local function viewOreLocations()
   term.clear()
   term.setCursorPos(1, 1)
   print("Ore Locations:")
-  local locations = ap.getOreLocations()
+  local locations = controller.getOreLocations()
   if #locations == 0 then
     print("No ore locations found.")
   else
@@ -38,7 +38,7 @@ end
 
 -- Function to toggle X-Ray vision
 local function toggleXRayVision()
-  ap.toggleXRayVision()
+  controller.toggleXRayVision()
   print("X-Ray vision toggled.")
   sleep(1)
 end
